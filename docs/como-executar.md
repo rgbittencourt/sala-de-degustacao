@@ -4,6 +4,10 @@ O aplicativo é **um único arquivo HTML**. Não tem instalação, dependência,
 obrigatório. Tudo o que ele precisa — inclusive as bibliotecas de gerar e ler QR Code — está
 dentro do arquivo.
 
+**Já está publicado e funcionando em
+https://rgbittencourt.github.io/sala-de-degustacao/** — se você só quer usar, é esse o endereço.
+O resto desta página é para quem precisa de outra forma de execução.
+
 Há quatro formas de executar, da mais simples à mais completa. A diferença entre elas é o que
 funciona em cada uma.
 

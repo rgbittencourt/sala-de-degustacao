@@ -6,6 +6,17 @@ dos próprios dados da prova.
 
 Arquivo único, sem instalação, sem cadastro e sem servidor obrigatório.
 
+### ▶ Executar agora
+
+**https://rgbittencourt.github.io/sala-de-degustacao/**
+
+Abre direto no navegador, no computador ou no celular. É este o endereço para colar em
+**Dados → Endereço do aplicativo** e distribuir à turma — como é `https://`, o QR Code, o
+leitor de câmera e a planilha do Google funcionam todos.
+
+Para rodar de outras formas — arquivo local, servidor na sua máquina, Moodle —, veja
+[como executar](docs/como-executar.md).
+
 ---
 
 ## O que ele faz
@@ -34,9 +45,8 @@ e a devolutiva que recebeu. O PDF é gerado pelo próprio aplicativo, sem intern
 
 ## Começar em dois minutos
 
-1. Baixe [`sala-degustacao.html`](sala-degustacao.html) e abra com dois cliques.
-   *(Para usar com a turma, veja [como executar](docs/como-executar.md) — o GitHub Pages
-   publica o aplicativo num endereço `https://` de graça, e com isso QR e câmera funcionam.)*
+1. Abra **https://rgbittencourt.github.io/sala-de-degustacao/** — ou baixe
+   [`sala-degustacao.html`](sala-degustacao.html) e dê dois cliques.
 2. O aplicativo abre em **modo aluno** — é assim para todo mundo, por segurança.
 3. Toque **cinco vezes no nome "Sala de Degustação"**, no alto da tela. Pronto: modo professor,
    com as seis aulas demonstrativas já carregadas.
