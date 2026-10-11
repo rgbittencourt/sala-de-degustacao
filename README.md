@@ -17,6 +17,14 @@ leitor de câmera e a planilha do Google funcionam todos.
 Para rodar de outras formas — arquivo local, servidor na sua máquina, Moodle —, veja
 [como executar](docs/como-executar.md).
 
+### 📖 Manual de uso
+
+**[Ler online](https://rgbittencourt.github.io/sala-de-degustacao/docs/manual.html)**  ·
+**[Baixar em PDF](https://rgbittencourt.github.io/sala-de-degustacao/docs/manual.pdf)** (25 páginas, ilustrado)
+
+Manual completo e ilustrado, com os guias dos três papéis, os cinco modelos de ficha, a
+interpretação de cada análise e as perguntas frequentes.
+
 ---
 
 ## O que ele faz
@@ -78,6 +86,8 @@ que o boletim do semestre tenha evolução real.
 
 ## Guias
 
+- **[Manual completo](docs/manual.html)** — tudo num documento só, ilustrado
+  ([PDF](docs/manual.pdf))
 - [Guia do professor](docs/guia-do-professor.md) — preparar, distribuir, recolher, devolver
 - [Guia do aluno](docs/guia-do-aluno.md) — uma página, para projetar ou imprimir
 - [Guia do avaliador](docs/guia-do-avaliador.md) — para a banca de coquetelaria

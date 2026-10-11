@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manual · Sala de Degustação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
+<style>
+:root{
+  --ground:#FFFFFF; --surface:#FAF7F6; --ink:#241A1D; --ink2:#5C4C52; --ink3:#8B7A81;
+  --line:#E4DADD; --line2:#CDBFC4; --accent:#8A1C3B; --mark:#8F1B38; --mark-alt:#1F7A74;
+  --display:"Newsreader",Georgia,serif; --ui:"Archivo","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--ui);
+  font-size:15px;line-height:1.62;-webkit-text-size-adjust:100%}
+.pg{max-width:780px;margin:0 auto;padding:0 22px 64px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0}
+a{color:var(--accent)}
+code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em;
+  background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+
+/* ---- capa ---- */
+.capa{text-align:center;padding:76px 22px 54px;border-bottom:1px solid var(--line);margin-bottom:0}
+.capa .eyebrow{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink3);font-weight:600}
+.capa h1{font-size:clamp(40px,8vw,62px);font-weight:500;line-height:1.02;letter-spacing:-.025em;margin:16px 0 0}
+.capa h1 em{display:block;font-style:italic;font-weight:400;color:var(--accent)}
+.capa .sub{font-family:var(--display);font-size:20px;color:var(--ink2);margin:20px 0 0}
+.capa .fio{width:54px;height:2px;background:var(--accent);margin:26px auto;border-radius:2px}
+.capa .meta{font-size:12.5px;color:var(--ink3);line-height:1.9}
+.capa .meta b{color:var(--ink2)}
+
+/* ---- sumário ---- */
+.sumario{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin:40px 0}
+.sumario h2{font-size:14px;font-family:var(--ui);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink3);font-weight:700;margin-bottom:12px}
+.sumario ol{margin:0;padding-left:20px;columns:2;column-gap:34px}
+.sumario li{margin:5px 0;break-inside:avoid}
+.sumario a{text-decoration:none;color:var(--ink)}
+.sumario a:hover{color:var(--accent)}
+
+/* ---- seções ---- */
+section{margin-top:52px}
+section>h2{font-size:30px;letter-spacing:-.015em;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+section>h2 .n{font-family:var(--ui);font-size:13px;font-weight:700;color:var(--accent);
+  display:block;letter-spacing:.14em;margin-bottom:4px}
+h3{font-size:20px;margin:30px 0 6px}
+h4{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink3);margin:22px 0 4px}
+p{margin:10px 0;max-width:68ch}
+ul,ol{max-width:68ch;padding-left:22px}
+li{margin:6px 0}
+
+figure{margin:24px 0;break-inside:avoid}
+figure img{width:100%;display:block;border:1px solid var(--line);border-radius:8px}
+figcaption{font-size:12.5px;color:var(--ink3);margin-top:8px;line-height:1.5}
+
+table{border-collapse:collapse;width:100%;font-size:13.5px;margin:18px 0}
+th,td{text-align:left;padding:8px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);
+  font-weight:700;background:var(--surface)}
+td.c,th.c{text-align:center}
+
+.nota{background:var(--surface);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
+  padding:14px 18px;margin:20px 0;break-inside:avoid}
+.nota p{margin:6px 0}
+.nota p:first-child{margin-top:0}
+.nota p:last-child{margin-bottom:0}
+.nota.atencao{border-left-color:#8A5A0B}
+.passos{counter-reset:p;list-style:none;padding-left:0}
+.passos li{counter-increment:p;position:relative;padding-left:40px;margin:14px 0}
+.passos li::before{content:counter(p);position:absolute;left:0;top:1px;width:26px;height:26px;
+  background:var(--accent);color:#fff;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--ui);font-size:13px;font-weight:700}
+.endereco{display:block;background:var(--accent);color:#fff;text-align:center;text-decoration:none;
+  font-size:17px;font-weight:600;padding:16px;border-radius:10px;margin:22px 0;word-break:break-all}
+.endereco:hover{filter:brightness(1.08)}
+.rodape{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink3);line-height:1.8}
+
+@media print{
+  @page{size:A4;margin:16mm 14mm}
+  body{font-size:10.5pt}
+  .pg{max-width:none;padding:0}
+  .capa{padding:40px 0 30px;page-break-after:always}
+  .sumario{page-break-after:always}
+  section{page-break-before:always;margin-top:0}
+  section:first-of-type{page-break-before:avoid}
+  h3,h4{page-break-after:avoid}
+  figure,table,.nota,.passos li{page-break-inside:avoid}
+  figure img{max-height:112mm;object-fit:contain;object-position:left top}
+  a{color:var(--ink)}
+  .endereco{background:none;color:var(--ink);border:1.5px solid var(--ink)}
+}
+</style>
+</head>
+<body>
+
+<div class="capa">
+  <span class="eyebrow">Manual de uso</span>
+  <h1>Sala de<em>Degustação</em></h1>
+  <p class="sub">Análise sensorial em sala de aula</p>
+  <span class="fio"></span>
+  <p class="meta">
+    <b>INOVALAB</b> · <b>Prof. Rogério Bittencourt</b><br>
+    Fichas e sistematização: <b>Prof. Jucelio Kulmann de Medeiros</b><br>
+    IFSC · Câmpus Florianópolis-Continente
+  </p>
+</div>
+
+<div class="pg">
+
+<nav class="sumario">
+  <h2>Sumário</h2>
+  <ol>
+    <li><a href="#oque">O que é</a></li>
+    <li><a href="#executar">Como executar</a></li>
+    <li><a href="#papeis">Os três papéis</a></li>
+    <li><a href="#professor">Guia do professor</a></li>
+    <li><a href="#aluno">Guia do aluno</a></li>
+    <li><a href="#avaliador">Guia do avaliador</a></li>
+    <li><a href="#fichas">Os cinco modelos de ficha</a></li>
+    <li><a href="#analises">Como ler as análises</a></li>
+    <li><a href="#planilha">Planilha do Google</a></li>
+    <li><a href="#duvidas">Perguntas frequentes</a></li>
+  </ol>
+</nav>
+
+<section id="oque">
+<h2><span class="n">Capítulo 1</span>O que é</h2>
+
+<p>A Sala de Degustação põe as fichas de análise sensorial no celular do estudante, monta o
+painel da turma no computador do professor e gera devolutivas individuais a partir dos próprios
+dados da prova.</p>
+
+<p>É <b>um único arquivo</b>. Não tem instalação, não pede cadastro e não depende de servidor.
+Tudo o que ele precisa — inclusive as bibliotecas de gerar e ler QR Code e de produzir PDF —
+está dentro do arquivo, e por isso funciona até sem internet.</p>
+
+<figure>
+  <img src="imagens/01-capa.jpg" alt="Tela de abertura do aplicativo">
+  <figcaption>A abertura. Para o estudante, o botão leva direto à ficha; para o professor,
+  às aulas.</figcaption>
+</figure>
+
+<h3>O que ele resolve</h3>
+<ul>
+  <li><b>Controle da atividade.</b> Você sabe quem entregou, o que entregou e quando.</li>
+  <li><b>Dados.</b> Média, mediana, desvio, amplitude, distribuição e uma dúzia de indicadores
+  que uma pilha de fichas de papel não entrega.</li>
+  <li><b>Agilidade.</b> A nota é somada sozinha; a devolutiva sai pronta para entregar.</li>
+</ul>
+
+<h3>Onde os dados ficam</h3>
+<p>Tudo é guardado no navegador do próprio aparelho. Nada sai dali sem uma ação explícita: o
+estudante decide mostrar o QR, você decide exportar. Nenhum serviço de terceiros recebe nome de
+estudante, e o aplicativo não faz chamada de rede por conta própria.</p>
+
+<div class="nota">
+<p><b>Faça cópia de segurança.</b> Como os dados moram no navegador, limpar o histórico do site
+os apaga. Em <b>Dados → Cópia de segurança → Exportar</b> você guarda um arquivo
+<code>.json</code> com tudo.</p>
+</div>
+</section>
+
+<section id="executar">
+<h2><span class="n">Capítulo 2</span>Como executar</h2>
+
+<p>O aplicativo já está publicado e funcionando. Para usar, basta abrir:</p>
+
+<a class="endereco" href="https://rgbittencourt.github.io/sala-de-degustacao/">https://rgbittencourt.github.io/sala-de-degustacao/</a>
+
+<p>Abre no computador ou no celular. Como o endereço é <code>https://</code>, tudo funciona:
+o QR Code, o leitor de câmera e a planilha do Google.</p>
+
+<h3>As quatro formas de executar</h3>
+<table>
+<thead><tr><th>Recurso</th><th class="c">Arquivo<br>local</th><th class="c">Servidor<br>na máquina</th><th class="c">GitHub<br>Pages</th><th class="c">Moodle</th></tr></thead>
+<tbody>
+<tr><td>Preencher fichas</td><td class="c">sim</td><td class="c">sim</td><td class="c">sim</td><td class="c">sim</td></tr>
+<tr><td>Painel e devolutivas</td><td class="c">sim</td><td class="c">sim</td><td class="c">sim</td><td class="c">sim</td></tr>
+<tr><td>PDF e planilha</td><td class="c">sim</td><td class="c">sim</td><td class="c">sim</td><td class="c">sim</td></tr>
+<tr><td>QR com a aula embutida</td><td class="c">não</td><td class="c">sim</td><td class="c"><b>sim</b></td><td class="c">sim</td></tr>
+<tr><td>Ler QR pela câmera</td><td class="c">não</td><td class="c">só no próprio PC</td><td class="c"><b>sim</b></td><td class="c">sim</td></tr>
+<tr><td>Planilha do Google</td><td class="c">não</td><td class="c">sim</td><td class="c"><b>sim</b></td><td class="c">sim</td></tr>
+</tbody>
+</table>
+
+<p><b>Arquivo local.</b> Baixe <code>sala-degustacao.html</code> e dê dois cliques. Serve para
+preparar aulas e ler resultados, não para distribuir à turma — o endereço <code>file://</code>
+existe só no seu computador.</p>
+
+<p><b>Servidor na máquina.</b> Útil para ensaiar com um celular de verdade antes da aula. Na
+pasta do arquivo, rode <code>python3 -m http.server 8000</code> e abra
+<code>http://localhost:8000/sala-degustacao.html</code>.</p>
+
+<p><b>Moodle.</b> Envie o arquivo como recurso do tipo <i>Arquivo</i>, marcado para abrir em
+janela nova. O endereço do recurso é o que você usa.</p>
+
+<h3>Conferir em cinco passos</h3>
+<ol class="passos">
+<li>Abra o endereço no computador e destrave o modo professor — cinco toques no nome
+<b>Sala de Degustação</b>, no alto da tela.</li>
+<li>Em <b>Dados → Endereço do aplicativo</b>, cole o endereço publicado e salve.</li>
+<li>Abra uma aula e clique em <b>Distribuir</b>. Confira se o link mostrado começa com o
+endereço certo.</li>
+<li>Aponte a câmera do celular para o QR. Deve abrir direto na ficha, sem menus.</li>
+<li>Preencha uma amostra, conclua, e leia o QR do celular em <b>Painel → Ler QR</b>.</li>
+</ol>
+
+<div class="nota atencao">
+<p><b>Se o passo 4 abrir o aplicativo sem a aula</b>, o endereço em <i>Dados</i> está errado.</p>
+<p><b>Se o passo 5 não abrir a câmera</b>, o endereço não é <code>https://</code>. A câmera do
+navegador só funciona em contexto seguro.</p>
+</div>
+
+<h3>Atualizar</h3>
+<p>Substitua o arquivo e pronto. <b>Os dados não se perdem</b>: ficam no navegador, separados do
+arquivo. Aulas de exemplo de versões antigas são trocadas sozinhas; as suas aulas não são tocadas.</p>
+</section>
+
+<section id="papeis">
+<h2><span class="n">Capítulo 3</span>Os três papéis</h2>
+
+<table>
+<thead><tr><th>Papel</th><th>O que faz</th><th>Como entra</th></tr></thead>
+<tbody>
+<tr><td><b>Professor</b></td><td>Cria aulas, lê o painel, gera devolutivas</td><td>Destrava o próprio aparelho</td></tr>
+<tr><td><b>Aluno</b></td><td>Preenche fichas de degustação</td><td>QR ou código da aula</td></tr>
+<tr><td><b>Avaliador</b></td><td>Julga os coquetéis dos alunos numa banca</td><td>QR ou código da aula</td></tr>
+</tbody>
+</table>
+
+<p>O aplicativo <b>abre em modo aluno para todo mundo</b> — só a ficha, sem menu nenhum e sem
+indício de que existam outras telas. É assim de propósito: o estudante não precisa saber que há
+um painel, e não deve tropeçar nele.</p>
+
+<h3>Destravar o modo professor</h3>
+<p>Toque <b>cinco vezes no nome “Sala de Degustação”</b>, no alto da tela, em até quatro
+segundos. Pronto — e é permanente para aquele aparelho.</p>
+
+<p>Para conferir o que a turma vê sem precisar de outro aparelho:
+<b>Dados → Ver como aluno vê</b>. Cinco toques no nome para voltar.</p>
+
+<div class="nota atencao">
+<p>Não passe essa instrução à turma.</p>
+</div>
+
+<p>O papel de quem preenche vem do <b>modelo de ficha</b>, não de configuração. Escolher a ficha
+de Coquetelaria já faz a aula pedir estudantes em vez de amostras, e o painel falar em
+avaliadores em vez de alunos.</p>
+</section>
+
+<section id="professor">
+<h2><span class="n">Capítulo 4</span>Guia do professor</h2>
+
+<h3>Antes da aula</h3>
+<p>Em <b>Aulas → Nova aula</b>, dê um título, a data, a turma e escolha o modelo de ficha. O
+modelo decide tudo o mais: quem preenche, o que é avaliado e que análises o painel vai produzir.</p>
+
+<figure>
+  <img src="imagens/02-aulas.jpg" alt="Lista de aulas">
+  <figcaption>A lista de aulas, aqui com as seis aulas demonstrativas que acompanham o
+  aplicativo. Cada linha mostra quantas amostras, quantas avaliações e quantas pessoas.</figcaption>
+</figure>
+
+<h4>O que cadastrar</h4>
+<p>Nas fichas de degustação são as <b>amostras</b>. Na ficha de coquetelaria são os
+<b>estudantes</b> que vão apresentar — e aí aparece um gerador de horários: informe o início e o
+intervalo e clique em <i>Gerar horários</i>.</p>
+
+<h4>Prova cega</h4>
+<p>Marque e a turma verá apenas “Amostra 1, 2, 3…”. O painel continua mostrando a identificação
+real, só para você.</p>
+
+<h4>Amostra repetida às cegas</h4>
+<p>Clique em <i>Duplicar às cegas</i> numa amostra: o aplicativo cria uma cópia com outro rótulo.
+Para a turma são bebidas diferentes; para o painel é a mesma, e com isso ele mede a
+<b>repetibilidade</b> de cada avaliador — o indicador mais honesto de que os critérios estão
+estáveis, porque não depende de concordar com ninguém. Vale a pena em toda prova com quatro ou
+mais amostras.</p>
+
+<h4>Modo treino com gabarito</h4>
+<p>Marque <i>Modo treino</i> e preencha o <i>Gabarito</i> de uma ou mais amostras — como a ficha
+deveria ser respondida. Ao concluir, o estudante vê na hora o quanto chegou perto, e o painel
+mostra onde a turma se afasta da referência.</p>
+
+<h4>Autoavaliação</h4>
+<p>Só na coquetelaria. Marque a opção e <i>Distribuir</i> passa a oferecer um segundo código, que
+abre <b>apenas a parte sensorial</b>, para o estudante pontuar o próprio trabalho antes da banca.
+Distribua esse código antes de a banca começar.</p>
+
+<h3>No início da aula</h3>
+<p>Antes de tudo, preencha uma vez <b>Dados → Endereço do aplicativo</b> com o endereço que a
+turma vai abrir. É ele que entra no QR e no link.</p>
+
+<figure>
+  <img src="imagens/03-distribuir.jpg" alt="Diálogo de distribuição com QR Code">
+  <figcaption><b>Distribuir</b> dá três caminhos para a mesma aula: o QR para projetar, o link
+  para mandar pelo Moodle e o código, que funciona em qualquer situação.</figcaption>
+</figure>
+
+<h3>Durante</h3>
+<p>Nada a fazer. O rascunho de cada pessoa é salvo no aparelho dela a cada toque — se o navegador
+fechar, nada se perde.</p>
+
+<figure>
+  <img src="imagens/04-ficha-aluno.jpg" alt="Ficha sendo preenchida pelo estudante">
+  <figcaption>A ficha como o estudante a vê: sem menus, com o total ao vivo no rodapé e o botão
+  <b>?</b> ao lado de cada critério, que abre a definição da sistematização.</figcaption>
+</figure>
+
+<h3>Recolher</h3>
+<p><b>Com a câmera</b> — <i>Painel → Ler QR</i>. Aponte para a tela do celular de cada estudante,
+um atrás do outro, sem fechar. Cada leitura dá um bipe e entra na lista.</p>
+<p><b>Pelo código</b> — <i>Painel → Receber envios</i>, e cole os códigos recebidos.</p>
+<p><b>Pela planilha</b> — se a ponte com o Google Sheets estiver configurada, os envios chegam
+sozinhos e você clica em <i>Buscar na planilha</i>.</p>
+
+<figure>
+  <img src="imagens/05-conclusao-qr.jpg" alt="Tela de conclusão com QR Code">
+  <figcaption>Ao concluir, o estudante vê o QR para mostrar a você. Nesta aula, em modo treino,
+  ele também recebe na hora a comparação com o gabarito.</figcaption>
+</figure>
+
+<h3>Ler os resultados</h3>
+
+<figure>
+  <img src="imagens/06-painel.jpg" alt="Painel de resultados">
+  <figcaption>O painel: resultado por amostra com média e mediana, a tabela completa e a
+  distribuição das notas. As barras mostram a <b>mediana</b>, menos sensível a uma nota fora da
+  curva.</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/07-devolutiva-turma.jpg" alt="Devolutiva da turma">
+  <figcaption>A devolutiva da turma vira texto: calibração do grupo, repetibilidade do painel,
+  efeito de ordem na sequência e distância em relação ao gabarito.</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/08-devolutiva-individual.jpg" alt="Devolutiva individual">
+  <figcaption>Na devolutiva individual, a dispersão mostra as notas da pessoa contra as da turma
+  — pontos abaixo da diagonal indicam quem é mais severo. Abaixo, a evolução ao longo das aulas
+  e a comparação item a item.</figcaption>
+</figure>
+
+<h3>Devolver ao estudante</h3>
+<p><i>Devolutivas → Folha de QR da turma</i>: uma grade com um QR por pessoa, cada um com o nome
+embaixo. Projete ou imprima — cada estudante lê <b>apenas o do próprio nome</b>, e aquele QR
+carrega só os dados dele.</p>
+
+<figure>
+  <img src="imagens/10-folha-qr.jpg" alt="Folha com um QR por estudante">
+  <figcaption>A folha de devolutivas. Quem ler recebe o retorno no aparelho e passa a poder
+  salvar um PDF com as próprias respostas mais a devolutiva.</figcaption>
+</figure>
+
+<p>Para uma pessoa só: <i>Por pessoa → QR desta pessoa</i>, ou <i>PDF desta pessoa</i> para
+mandar o arquivo por e-mail.</p>
+
+<h3>Levar para a planilha</h3>
+<p>Em <b>Dados → Planilha</b>:</p>
+<ul>
+<li><b>.xlsx da aula</b> — quatro abas: Envios (uma linha por avaliação, uma coluna por
+critério), Resumo, Critérios e Devolutivas.</li>
+<li><b>.csv da aula</b> — a mesma tabela de envios, em texto.</li>
+<li><b>.csv de tudo</b> — formato longo, uma linha por resposta, de todas as aulas. É o melhor
+para tabela dinâmica.</li>
+</ul>
+<p>E em <b>Dados → Devolutivas → Baixar .txt</b> sai a devolutiva da turma e de cada pessoa num
+arquivo só.</p>
+</section>
+
+<section id="aluno">
+<h2><span class="n">Capítulo 5</span>Guia do aluno</h2>
+<p><i>Esta página pode ser projetada ou impressa e entregue à turma.</i></p>
+
+<h3>Entrar</h3>
+<p><b>Pelo QR</b> — aponte a câmera do celular para o QR projetado e toque no link. Você cai
+direto na ficha.</p>
+<p><b>Pelo código</b> — abra o endereço que o professor passou, cole o código que começa com
+<code>SDA1.</code> e toque em <i>Entrar</i>.</p>
+<p>Escreva seu <b>nome completo</b> e a turma. Isso é pedido uma vez só.</p>
+
+<h3>Preencher</h3>
+<p>Escolha a amostra nas etiquetas do topo e percorra a ficha. O botão <b>?</b> ao lado de um
+critério abre a definição dele — use sempre que tiver dúvida sobre o que está sendo pedido.</p>
+<p>No rodapé fica o total ao vivo e quantos itens faltam. Suas respostas são salvas a cada
+toque: se o navegador fechar, nada se perde.</p>
+
+<h3>Concluir</h3>
+<p>Toque em <b>Concluir</b>. Aparece um QR Code. <b>Chame o professor e mostre a tela</b> — ele
+aponta a câmera e sua avaliação entra no aparelho dele na hora.</p>
+<p>Se não der para fazer isso ali, toque em <i>Copiar código</i> e mande por Moodle, WhatsApp ou
+e-mail. Depois é só escolher a próxima amostra.</p>
+
+<h3>Receber a devolutiva</h3>
+<p>Depois da aula, o professor mostra uma folha com um QR para cada estudante. <b>Leia apenas o
+QR com o seu nome.</b> Ele contém só os seus dados, e a devolutiva fica guardada no seu aparelho.</p>
+
+<h3>Guardar o seu boletim</h3>
+<p>Quando terminar todas as amostras — ou depois de receber a devolutiva — aparece o botão
+<b>Salvar meu boletim (PDF)</b>. O PDF traz a aula, todas as respostas que você deu, sua nota e a
+devolutiva do professor. Fica no seu aparelho, para estudar depois.</p>
+
+<h3>Perguntas comuns</h3>
+<p><b>Perdi a página antes de mostrar o QR.</b> Abra de novo: suas respostas continuam salvas.
+Escolha a amostra e toque em <i>Concluir</i> outra vez — o mesmo QR é gerado.</p>
+<p><b>Preenchi errado.</b> Escolha a amostra de novo, corrija e conclua. A avaliação nova
+substitui a anterior.</p>
+<p><b>Meus dados vão para algum lugar?</b> Não. Ficam no seu aparelho até você mostrar o QR ou
+mandar o código.</p>
+</section>
+
+<section id="avaliador">
+<h2><span class="n">Capítulo 6</span>Guia do avaliador</h2>
+<p><i>Para a banca de coquetelaria. Também pode ser impressa.</i></p>
+
+<h3>Entrar</h3>
+<p>Aponte a câmera para o QR projetado, ou cole o código enviado. Escreva seu nome — é ele que
+identifica suas notas no painel.</p>
+
+<h3>O que você avalia</h3>
+<p>Na barra do topo ficam os <b>estudantes</b>, na ordem de apresentação, com horário. Escolha
+quem está apresentando agora. A ficha tem três partes:</p>
+
+<p><b>Avaliação técnica</b> — vinte itens de Sim ou Não sobre a execução: copo, dosagem,
+mise-en-place, higiene, domínio da técnica, postura. Cada item vale 5 pontos, e o bloco vale 50%
+da nota final.</p>
+
+<p><b>Avaliação sensorial</b> — sete critérios pontuados: Decoração, Aspecto visual, Aromas,
+Equilíbrio gustativo, Sensação gustativa, Drinkability e Comerciabilidade. Vale os outros 50%.</p>
+
+<p><b>Penalidades</b> — quatro perguntas. Responder <i>Não</i> em qualquer uma trava as duas
+avaliações em 50 pontos. Use com critério.</p>
+
+<p><b>Devolutiva</b> — um campo aberto. Escreva: é o que o estudante mais lê.</p>
+
+<h3>Por que pontuar com a sua régua de sempre</h3>
+<p>O painel mostra a <b>severidade de cada jurado</b> — o quanto cada um se afasta da média da
+banca. Isso não serve para corrigir nota dada; serve para calibrar a próxima banca. Por isso vale
+pontuar como você pontuaria em qualquer outra avaliação, sem compensar para cima ou para baixo.</p>
+</section>
+
+<section id="fichas">
+<h2><span class="n">Capítulo 7</span>Os cinco modelos de ficha</h2>
+
+<h3>1 · Ficha Oficial de Análise Sensorial</h3>
+<p><i>IFSC · Câmpus Florianópolis-Continente — preenchida por alunos, avalia amostras</i></p>
+<p>Escala de 100 pontos, mínimo 40. Dez critérios em quatro blocos:</p>
+<table>
+<thead><tr><th>Bloco</th><th>Critério</th><th>Escala</th></tr></thead>
+<tbody>
+<tr><td>Visual</td><td>Limpidez</td><td>5 · 4 · 3 · 2 · 1</td></tr>
+<tr><td></td><td>Aspecto</td><td>10 · 8 · 6 · 4 · 2</td></tr>
+<tr><td>Olfativo</td><td>Intensidade</td><td>8 · 7 · 6 · 4 · 2</td></tr>
+<tr><td></td><td>Nitidez</td><td>6 · 5 · 4 · 3 · 2</td></tr>
+<tr><td></td><td>Qualidade</td><td>16 · 14 · 12 · 10 · 8</td></tr>
+<tr><td>Gustativo</td><td>Intensidade</td><td>8 · 7 · 6 · 4 · 2</td></tr>
+<tr><td></td><td>Nitidez</td><td>6 · 5 · 4 · 3 · 2</td></tr>
+<tr><td></td><td>Qualidade</td><td>22 · 19 · 16 · 13 · 10</td></tr>
+<tr><td></td><td>Persistência</td><td>8 · 7 · 6 · 5 · 4</td></tr>
+<tr><td>Global</td><td>Apreciação global</td><td>11 · 10 · 9 · 8 · 7</td></tr>
+</tbody>
+</table>
+<p>As definições vêm da <b>Sistematização da ficha oficial</b> e aparecem no botão <b>?</b> de
+cada critério. Há ainda uma seção opcional, <i>Perfil do vinho</i>, com doçura, acidez, amargor,
+álcool, corpo, tanino e maciez — descritiva, não pontua.</p>
+
+<h3>2 · Vinhos de uva Goethe</h3>
+<p><i>IFSC · Progoethe — preenchida por alunos, avalia amostras</i></p>
+<p>Validação de descritores. Intensidade de 0 a 4 em 23 descritores, distribuídos por análise
+visual (4), olfativa (10), gustativa (7) e avaliação global (2), mais quatro defeitos e um campo
+aberto. É o modelo certo quando o objetivo é <b>treinar o painel</b>, e não dar nota.</p>
+
+<figure>
+  <img src="imagens/09-radar-goethe.jpg" alt="Radares comparando o perfil do aluno com o do painel">
+  <figcaption>Os radares comparam o perfil de quem avaliou com o do painel, um por bloco da
+  ficha. É o gráfico clássico da análise sensorial descritiva.</figcaption>
+</figure>
+
+<h3>3 · Roteiro de Análise Sensorial</h3>
+<p><i>IFSC · Câmpus Florianópolis-Continente — preenchida por alunos, avalia amostras</i></p>
+<p>Três partes. A primeira é obrigatória e aberta: descrever o vinho na sequência visual,
+olfativo e gustativo, comentando posicionamento de gama, preço, região, idade, maturação e
+potencial de guarda. A segunda, opcional, verifica características em caixas. A terceira pede
+nova descrição à luz do que foi assinalado.</p>
+
+<h3>4 · Ficha Técnica de Degustação</h3>
+<p><i>Modelo de Adailton Melo — preenchida por alunos, avalia amostras</i></p>
+<p>Ficha descritiva completa: identificação da amostra, exame visual (com perlage para
+espumantes), olfativo com reconhecimento de grupos aromáticos, gustativo e avaliação final com
+maturidade, defeitos graves e harmonização. Itens que dependem do tipo de bebida não contam como
+obrigatórios.</p>
+
+<h3>5 · Avaliação de Coquetelaria</h3>
+<p><i>IFSC — preenchida por avaliadores, avalia estudantes</i></p>
+<p>Nota final = 50% técnica + 50% sensorial.</p>
+<ul>
+<li><b>Técnica (100 pontos)</b> — vinte itens de Sim ou Não, 5 pontos cada. Alguns são
+invertidos: em “Derramou ou pingou líquidos?”, o Não é que pontua.</li>
+<li><b>Sensorial (100 pontos)</b> — Decoração 10, Aspecto visual 10, Aromas 15, Equilíbrio
+gustativo 25, Sensação gustativa 10, Drinkability 15, Comerciabilidade 15.</li>
+<li><b>Penalidades</b> — quatro itens que, respondidos com Não, travam as duas avaliações em
+50 pontos.</li>
+</ul>
+</section>
+
+<section id="analises">
+<h2><span class="n">Capítulo 8</span>Como ler as análises</h2>
+
+<h3>Sobre as amostras</h3>
+<p><b>Média e mediana.</b> A mediana é o valor do meio quando as notas são ordenadas. O painel
+mostra a mediana nas barras porque uma única nota fora da curva — comum numa turma em formação —
+desloca a média e não desloca a mediana. Quando as duas se afastam muito, há alguém avaliando de
+forma bem diferente do grupo.</p>
+
+<p><b>Desvio-padrão.</b> O quanto as notas se espalham. Na escala de 100 pontos: abaixo de 4 é
+consenso alto, de 4 a 8 é razoável, acima de 8 o grupo divergiu.</p>
+
+<p><b>Caixa e bigode.</b> A linha fina vai da menor à maior nota; o bloco cobre a metade central
+da turma; o traço claro é a mediana.</p>
+
+<p><b>Separação entre as amostras.</b> Diferença entre a primeira e a última colocada, em
+percentual da escala. Abaixo de 5% a turma praticamente não diferenciou as amostras — ou elas
+eram equivalentes, ou faltou repertório.</p>
+
+<h3>Sobre quem avalia</h3>
+<p><b>Calibração (viés).</b> O quanto a pessoa se afasta, em média, da nota do grupo para as
+mesmas amostras. Positivo é mais generoso, negativo é mais severo. Não é erro: é régua. O que
+importa é ser consistente.</p>
+
+<p><b>Concordância na ordenação (ρ de Spearman).</b> Mede se a pessoa ordenou as amostras como a
+turma, independentemente de dar notas mais altas ou mais baixas. Acima de 0,7 é forte; de 0,3 a
+0,7, parcial; abaixo disso, não se relaciona. <b>É o indicador mais importante numa banca</b>:
+dar nota alta não atrapalha, desde que a hierarquia esteja certa.</p>
+
+<p><b>Uso da escala.</b> Quem dá quase a mesma nota para tudo está escondendo diferenças que
+provavelmente percebeu.</p>
+
+<p><b>Coerência da apreciação global (r de Pearson).</b> Correlação entre a nota global que a
+pessoa deu e a soma dos demais critérios dela. Negativa indica que a impressão geral foi formada
+antes da análise, e não depois.</p>
+
+<p><b>Repetibilidade.</b> Exige amostra repetida às cegas. É a diferença entre as duas notas que
+a mesma pessoa deu à mesma bebida. Abaixo de 5% é excelente; acima de 12% indica critério
+instável. <b>É o indicador mais honesto de todos</b> — não depende de concordar com ninguém, só
+consigo mesmo.</p>
+
+<h3>Sobre os critérios</h3>
+<p><b>Critérios que mais dividiram a turma.</b> Dispersão de cada critério. São os que precisam
+ser retomados em aula.</p>
+
+<p><b>Poder discriminante.</b> Razão entre a variação <i>entre</i> amostras e a variação
+<i>dentro</i> de cada amostra. Baixo significa que todas receberam nota parecida — ou elas se
+equivalem naquele critério, ou ele está sendo preenchido no automático. Um descritor pode ter
+consenso alto e discriminação baixa: descreve bem, mas não diferencia.</p>
+
+<p><b>Comparação item a item.</b> Lado a lado, a resposta da pessoa e a da turma, com destaque
+só no que destoa de verdade. É o material mais concreto para a conversa individual.</p>
+
+<h3>Sobre a prova</h3>
+<p><b>Efeito de ordem.</b> Desvio médio por posição na sequência. Queda das primeiras para as
+últimas é o padrão da <b>fadiga sensorial</b> — vale reduzir o número de amostras, prever pausa
+ou sortear a ordem. Subida costuma ser aquecimento do painel.</p>
+
+<p><b>Proximidade do gabarito.</b> Exige modo treino. Percentual de critérios iguais à
+referência, e percentual a até um nível de distância. Acima de 80% dentro de um nível, o
+vocabulário está ancorado.</p>
+
+<h3>Sobre a banca de coquetelaria</h3>
+<p><b>Concordância da banca.</b> Desvio entre jurados para o mesmo estudante. Abaixo de 5 pontos
+a banca está coesa; acima de 12, os critérios estão sendo lidos de formas diferentes.</p>
+
+<p><b>Autoavaliação comparada à banca.</b> Distância pequena é maturidade: conseguir provar o
+próprio trabalho sem se enganar. Superestimar e subestimar são problemas diferentes, e a
+devolutiva trata cada um de um jeito.</p>
+
+<div class="nota">
+<p><b>Uma ressalva importante.</b> Quase tudo aqui compara uma pessoa com o grupo, e isso mede
+<b>alinhamento</b>, não acerto — o grupo inteiro pode estar errado. Os únicos indicadores
+independentes do consenso são a <b>repetibilidade</b> e a <b>proximidade do gabarito</b>. Por
+isso vale usar amostra repetida e gabarito sempre que a prova permitir.</p>
+</div>
+</section>
+
+<section id="planilha">
+<h2><span class="n">Capítulo 9</span>Planilha do Google</h2>
+
+<p>Opcional. Sem ela o aplicativo funciona inteiro, com recolhimento por QR ou código. Com ela,
+cada envio cai direto numa planilha sua.</p>
+
+<div class="nota atencao">
+<p>Só funciona com o aplicativo em <code>https://</code>. Aberto por duplo clique, o navegador
+bloqueia a chamada e o aplicativo volta sozinho para o fluxo por código — nada quebra.</p>
+</div>
+
+<h3>Instalar (uma vez, cerca de cinco minutos)</h3>
+<ol class="passos">
+<li>Crie uma planilha no Google Planilhas. O nome é livre.</li>
+<li>Vá em <b>Extensões → Apps Script</b>, apague o conteúdo e cole o arquivo
+<code>planilha/apps-script.gs</code> do repositório. Salve.</li>
+<li><b>Implantar → Nova implantação</b>. Tipo: <b>Aplicativo da Web</b>. Executar como:
+<b>Eu</b>. Quem pode acessar: <b>Qualquer pessoa</b> — indispensável, senão o celular do aluno
+recebe “não autorizado”.</li>
+<li>Autorize o acesso: sua conta → <i>Avançado</i> → <i>Acessar (não seguro)</i> →
+<i>Permitir</i>. O aviso aparece porque o script é seu e não passou por revisão do Google; ele só
+acessa esta planilha.</li>
+<li>Copie o <b>URL do aplicativo da web</b> (termina em <code>/exec</code>) e cole em
+<b>Dados → Endpoint da planilha</b>. Salve e clique em <b>Testar conexão</b>.</li>
+</ol>
+
+<h3>O que vai para a planilha</h3>
+<p>Três abas, criadas sozinhas: <b>Aulas</b>, <b>Envios</b> (uma linha por avaliação) e
+<b>Detalhe</b> (uma linha por resposta — é a que alimenta tabela dinâmica).</p>
+
+<div class="nota">
+<p>Ao alterar o script depois, use <b>Implantar → Gerenciar implantações → editar → Versão: Nova
+versão</b>. Sem isso o endereço continua servindo a versão antiga.</p>
+</div>
+</section>
+
+<section id="duvidas">
+<h2><span class="n">Capítulo 10</span>Perguntas frequentes</h2>
+
+<h4>O professor precisa ter conta em algum lugar?</h4>
+<p>Não. Nem o professor, nem os alunos, nem os avaliadores. Basta um navegador.</p>
+
+<h4>Funciona sem internet?</h4>
+<p>O aplicativo em si, sim — inclusive gerar QR, ler QR, produzir PDF e exportar planilha.
+O que precisa de rede é o estudante <i>alcançar</i> o endereço, e a sincronização com o Google.</p>
+
+<h4>Onde estão as aulas demonstrativas?</h4>
+<p>Carregam sozinhas no primeiro uso. Se não aparecerem, vá em
+<b>Dados → Aulas demonstrativas → Carregar exemplos</b>. São seis aulas, com 84 avaliações, que
+cobrem todos os modelos de ficha.</p>
+
+<h4>Como apago os exemplos quando for usar pra valer?</h4>
+<p><b>Dados → Aulas demonstrativas → Remover</b>. Suas aulas não são tocadas.</p>
+
+<h4>Posso usar em duas turmas ao mesmo tempo?</h4>
+<p>Sim. Cada aula tem a sua turma, e o boletim do semestre permite filtrar por turma.</p>
+
+<h4>E se dois alunos entregarem com o mesmo nome?</h4>
+<p>A segunda entrega substitui a primeira — o aplicativo considera nome e amostra como a
+identidade da avaliação. Peça nome completo.</p>
+
+<h4>O aluno consegue ver as notas dos colegas?</h4>
+<p>Não. O aparelho dele só tem os dados dele, e a devolutiva que ele recebe por QR contém apenas
+o que é dele. A posição na turma aparece como percentual, sem expor nota de ninguém.</p>
+
+<h4>Perdi tudo ao limpar o navegador.</h4>
+<p>Os dados ficam no navegador. Sem uma cópia de segurança exportada, não há recuperação.
+Exporte em <b>Dados → Cópia de segurança</b> ao fim de cada aula.</p>
+
+<h4>Posso adaptar as fichas?</h4>
+<p>Os modelos são fixos nesta versão. Para alterá-los é preciso editar o arquivo HTML — a seção
+<code>MODELOS DE FICHA</code> fica no começo do código e é legível.</p>
+</section>
+
+<div class="rodape">
+  <p><b>Sala de Degustação</b> — manual de uso.<br>
+  Desenvolvimento: <b>INOVALAB</b> · <b>Prof. Rogério Bittencourt</b>.<br>
+  Fichas e sistematização: <b>Prof. Jucelio Kulmann de Medeiros</b>, com colaboração de Eduarda
+  Zampiron. IFSC · Câmpus Florianópolis-Continente.<br>
+  A Ficha Técnica de Degustação segue modelo de Adailton Melo.</p>
+  <p>Aplicativo e código: <b>github.com/rgbittencourt/sala-de-degustacao</b></p>
+</div>
+
+</div>
+</body>
+</html>
